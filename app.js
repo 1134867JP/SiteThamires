@@ -101,7 +101,7 @@ function handleNavClick(event, targetId) {
 function openWhatsApp() {
   const text = [
     "Olá.",
-    "Gostaria de agendar uma conversa sobre atendimento domiciliar."
+    "Gostaria de agendar uma avaliação fisioterapêutica domiciliar."
   ].join("\n");
 
   const whatsappUrl = `https://wa.me/5554999549918?text=${encodeURIComponent(text)}`;

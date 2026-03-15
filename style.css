@@ -18,7 +18,7 @@
   --radius-lg: 40px;
   --radius-pill: 999px;
   --container: 1120px;
-  --header-height: 84px;
+  --header-height: 74px;
   --transition: 220ms ease;
 }
 
@@ -204,6 +204,9 @@ footer {
 
 .header {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   inset: 0 0 auto;
   z-index: 1000;
   min-height: var(--header-height);
@@ -218,9 +221,9 @@ footer {
 }
 
 .pre-entry .header {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-100%);
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
 }
 
 .navbar {
@@ -230,7 +233,7 @@ footer {
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 0.85rem;
-  padding: 0.85rem 0;
+  padding: 0.45rem 0;
 }
 
 .brand {
@@ -672,7 +675,7 @@ footer {
 
 .about-copy {
   display: grid;
-  gap: 1.1rem;
+  gap: 0.75rem;
 }
 
 .about-points {
@@ -887,11 +890,16 @@ footer {
   gap: 1rem;
 }
 
+.service-grid {
+  grid-template-columns: 1fr;
+}
+
 .service-card {
   position: relative;
   display: grid;
-  gap: 0.85rem;
-  padding: 1.4rem;
+  gap: 0.95rem;
+  min-height: 195px;
+  padding: 1.3rem;
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(25, 53, 46, 0.08);
   box-shadow: 0 14px 34px rgba(10, 23, 19, 0.06);
@@ -925,15 +933,14 @@ footer {
 
 .service-index {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 2rem;
+  font-size: 1.35rem;
   line-height: 1;
-  color: rgba(22, 107, 96, 0.48);
+  color: rgba(22, 107, 96, 0.34);
   transition:
     color var(--transition),
     transform var(--transition);
 }
 
-.service-card h3,
 .process-card h3,
 .footer h3,
 .footer h4 {
@@ -942,6 +949,20 @@ footer {
   font-size: 2rem;
   font-weight: 600;
   line-height: 1;
+}
+
+.service-card h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.36rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.service-card p {
+  margin: 0;
+  line-height: 1.58;
 }
 
 @media (hover: hover) {
@@ -1344,7 +1365,6 @@ footer {
 }
 
 @media (min-width: 521px) and (max-width: 780px) {
-  .about-points,
   .service-grid,
   .process-grid,
   .footer-grid {
@@ -1373,7 +1393,10 @@ footer {
     width: auto;
   }
 
-  .service-grid,
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .process-grid,
   .footer-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1392,7 +1415,7 @@ footer {
   }
 
   :root {
-    --header-height: 76px;
+    --header-height: 68px;
   }
 
   .section {
@@ -1471,7 +1494,7 @@ footer {
   .navbar {
     grid-template-columns: auto 1fr auto;
     width: min(100% - 2rem, 1040px);
-    padding: 0.65rem 0;
+    padding: 0.4rem 0;
   }
 
   .brand-logo {
@@ -1531,12 +1554,12 @@ footer {
   }
 
   .about-layout {
-    grid-template-columns: minmax(0, 1.16fr) minmax(250px, 320px);
+    grid-template-columns: minmax(250px, 300px) minmax(0, 1.12fr);
     grid-template-areas:
-      "whoami side"
-      "main side";
+      "side whoami"
+      "side main";
     align-items: start;
-    gap: 1.2rem 1.35rem;
+    gap: 0.95rem 1.25rem;
   }
 
   .whoami-card--inline {
@@ -1549,63 +1572,43 @@ footer {
   .about-main {
     grid-area: main;
     max-width: none;
-    gap: 0.9rem;
+    gap: 0.72rem;
   }
 
   .about-main .section-heading {
     margin-bottom: 0;
-    gap: 0.65rem;
+    gap: 0.5rem;
   }
 
   .about-main .section-title {
-    font-size: clamp(2.35rem, 3.85vw, 3.35rem);
-    max-width: 14ch;
+    font-size: clamp(2.2rem, 3.45vw, 3.05rem);
+    max-width: 18ch;
   }
 
   .about-main .section-subtitle,
   .about-main .about-copy p {
     font-size: 0.95rem;
-    max-width: 60ch;
+    max-width: 66ch;
   }
 
   .about-copy {
-    gap: 0.9rem;
-  }
-
-  .about-layout .soft-card {
-    grid-template-columns: 40px 1fr;
-    gap: 0.75rem;
-    padding: 0.85rem;
-  }
-
-  .about-layout .soft-card i {
-    width: 40px;
-    height: 40px;
-    border-radius: 14px;
-    font-size: 0.88rem;
-  }
-
-  .about-layout .soft-card strong {
-    font-size: 0.95rem;
-  }
-
-  .about-layout .soft-card span {
-    font-size: 0.9rem;
+    gap: 0.65rem;
   }
 
   .about-side .portrait-card {
     gap: 0;
-    width: min(100%, 320px);
-    padding: 0.55rem 0.55rem 2.4rem;
+    width: min(100%, 300px);
+    padding: 0.5rem 0.5rem 2.05rem;
   }
 
   .about-side {
     grid-area: side;
-    justify-items: end;
+    justify-items: start;
   }
 
   .about-side .portrait-photo {
-    aspect-ratio: 4 / 5;
+    height: clamp(320px, 34vw, 390px);
+    aspect-ratio: auto;
     border-radius: 24px;
   }
 
@@ -1624,27 +1627,33 @@ footer {
     font-size: 0.74rem;
   }
 
-  .about-points {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-  }
-
   .service-grid,
   .process-grid,
   .footer-grid {
     gap: 0.85rem;
   }
 
-  .service-card,
   .process-card {
     padding: 1.1rem;
   }
 
-  .service-index {
-    font-size: 1.7rem;
+  .service-card {
+    min-height: 215px;
+    padding: 1.25rem;
   }
 
-  .service-card h3,
+  .service-card h3 {
+    font-size: 1.42rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+  }
+
+  .service-index {
+    font-size: 1.18rem;
+  }
+
   .process-card h3,
   .footer h3,
   .footer h4 {
