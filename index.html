@@ -1,339 +1,308 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thamires Camargo | Fisioterapia domiciliar</title>
-    <meta
-      name="description"
-      content="Fisioterapia domiciliar com atendimento humanizado para recuperar mobilidade, aliviar dor e devolver autonomia com segurança."
-    />
-    <link rel="icon" type="image/png" href="assets/logo-site.png" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body class="pre-entry">
-    <header class="header">
-      <nav class="navbar" aria-label="Principal">
-        <a class="brand" href="#inicio" aria-label="Ir para a entrada do site">
-          <img
-            src="assets/logo-site.png"
-            alt="Thamires Camargo - Fisioterapeuta"
-            class="brand-logo"
-            width="320"
-            height="213"
-          />
-          <span class="brand-copy">
-            <strong>Thamires Camargo</strong>
-            <span>Fisioterapia domiciliar</span>
-          </span>
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thamires Camargo | Fisioterapia domiciliar</title>
+  <meta name="description" content="Fisioterapia domiciliar com atendimento humanizado para recuperar mobilidade, aliviar dor e devolver autonomia com segurança." />
+  <link rel="icon" type="image/png" href="assets/logo-site.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-        <button
-          class="hamburger"
-          type="button"
-          aria-label="Abrir menu"
-          aria-expanded="false"
-          aria-controls="nav-menu"
-        >
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
 
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="#sobre" class="nav-link">Sobre</a></li>
-          <li><a href="#atendimentos" class="nav-link">Atendimentos</a></li>
-          <li><a href="#acompanhamento" class="nav-link">Acompanhamento</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
-        </ul>
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#inicio" class="logo" aria-label="Thamires Camargo">
+        <img src="assets/logo-site.png" alt="Thamires Camargo" class="logo-img" />
+      </a>
 
-        <button class="btn btn--primary nav-cta" type="button" onclick="openWhatsApp()">
-          Agendar avaliação
-        </button>
+      <nav class="nav" aria-label="Principal">
+        <a href="#sobre" class="nav-link" data-nav>Sobre</a>
+        <a href="#atendimentos" class="nav-link" data-nav>Atendimentos</a>
+        <a href="#acompanhamento" class="nav-link" data-nav>Como funciona</a>
+        <a href="#contato" class="nav-link" data-nav>Contato</a>
       </nav>
-    </header>
 
-    <main>
-      <section id="inicio" class="intro">
-        <div class="intro-rings" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+      <button class="header-cta" onclick="openWhatsApp()">
+        Agendar avaliação <i class="fas fa-arrow-right"></i>
+      </button>
 
-        <div class="intro-portrait" aria-hidden="true">
-          <img
-            src="assets/fotoSemFundo.npg.png"
-            alt=""
-            class="intro-portrait__image"
-            width="1182"
-            height="1600"
-          />
-        </div>
-
-        <div class="intro-shell container">
-          <img
-            src="assets/logo-site.png"
-            alt="Thamires Camargo"
-            class="intro-logo"
-            width="320"
-            height="213"
-          />
-          <span class="intro-tag">Fisioterapia domiciliar</span>
-          <h1 class="intro-title">Thamires Camargo</h1>
-          <p class="intro-subtitle">
-            Cuidado em casa para recuperar movimento, aliviar dor e devolver
-            segurança à rotina.
-          </p>
-
-          <div class="intro-actions">
-            <button class="btn btn--primary btn--lg enter-button" type="button">
-              Saiba mais
-            </button>
-            <button class="intro-link" type="button" onclick="openWhatsApp()">
-              <i class="fab fa-whatsapp"></i>
-              Falar no WhatsApp agora
-            </button>
-          </div>
-
-          <button class="intro-cue" type="button" aria-label="Descer para conhecer mais">
-            <span class="intro-cue__label">Desça para continuar</span>
-            <span class="intro-cue__hint">ou toque em Saiba mais</span>
-            <span class="intro-cue__arrow" aria-hidden="true">
-              <i class="fas fa-chevron-down"></i>
-            </span>
-          </button>
-        </div>
-      </section>
-
-      <div class="content-shell">
-        <section id="sobre" class="section about">
-          <div class="container about-layout">
-            <article class="whoami-card whoami-card--inline" data-reveal="up">
-              <span class="section-tag">Quem sou eu</span>
-              <p>
-                Sou Thamires Camargo, fisioterapeuta especialista em
-                oncologia, com foco em atendimento domiciliar e mais de 3 anos
-                de experiência hospitalar.
-              </p>
-              <div class="whoami-highlights" aria-label="Destaques profissionais">
-                <span>CREFITO 4043-02/F</span>
-                <span>Atendimento domiciliar em Passo Fundo - RS</span>
-              </div>
-              <ul class="whoami-list">
-                <li>Avaliação fisioterapêutica individual no domicílio</li>
-                <li>Plano terapêutico personalizado com metas claras</li>
-                <li>Acompanhamento de evolução com reavaliações periódicas</li>
-              </ul>
-            </article>
-
-            <div class="about-main">
-              <div class="section-heading section-heading--left" data-reveal="up" style="--reveal-delay: 0.06s">
-                <span class="section-tag">Sobre o atendimento</span>
-                <h2 class="section-title">
-                  Um cuidado próximo, funcional e seguro para a sua rotina e recuperação
-                </h2>
-                <p class="section-subtitle">
-                  Cada atendimento domiciliar é individualizado, com acolhimento,
-                  técnica e objetivos claros para o seu momento.
-                </p>
-              </div>
-
-              <div class="about-copy" data-reveal="up" style="--reveal-delay: 0.12s">
-                <p>
-                  O plano de cuidado considera dor, fadiga, mobilidade,
-                  funcionalidade e o que faz sentido para a sua rotina,
-                  unindo experiência hospitalar e reabilitação oncológica com
-                  condutas seguras e personalizadas.
-                </p>
-              </div>
-            </div>
-
-            <aside class="about-side">
-              <div class="portrait-card" data-reveal="up" style="--reveal-delay: 0.18s">
-                <img
-                  src="assets/foto-hero-640.jpg"
-                  alt="Thamires Camargo"
-                  class="portrait-photo"
-                  width="640"
-                  height="853"
-                />
-                <div class="portrait-badge">
-                  <strong>Thamires Camargo</strong>
-                  <span>Fisioterapeuta | CREFITO 4043-02/F</span>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section id="atendimentos" class="section services">
-          <div class="container">
-            <div class="section-heading" data-reveal="up">
-              <span class="section-tag">Atendimentos</span>
-              <h2 class="section-title">Atendimentos domiciliares e recursos terapêuticos</h2>
-              <p class="section-subtitle">
-                Atendimento oncológico, pessoa idosa, liberação miofascial e agulhamento a seco.
-              </p>
-            </div>
-
-            <div class="service-grid">
-              <article class="service-card" data-reveal="up">
-                <span class="service-index">01</span>
-                <h3>Atendimento oncológico</h3>
-                <p>
-                  Reabilitação com condutas seguras para dor, fadiga, mobilidade e
-                  funcionalidade durante e após o tratamento.
-                </p>
-              </article>
-
-              <article class="service-card" data-reveal="up" style="--reveal-delay: 0.08s">
-                <span class="service-index">02</span>
-                <h3>Atendimento à pessoa idosa</h3>
-                <p>
-                  Condutas para equilíbrio, força, marcha e autonomia, com foco em
-                  prevenção de quedas e qualidade de vida.
-                </p>
-              </article>
-
-              <article class="service-card" data-reveal="up" style="--reveal-delay: 0.16s">
-                <span class="service-index">03</span>
-                <h3>Liberação miofascial</h3>
-                <p>
-                  Técnica manual para aliviar tensões musculares, reduzir dor e melhorar
-                  mobilidade de forma progressiva e segura.
-                </p>
-              </article>
-
-              <article class="service-card" data-reveal="up" style="--reveal-delay: 0.24s">
-                <span class="service-index">04</span>
-                <h3>Agulhamento a seco (dry needling)</h3>
-                <p>
-                  Recurso terapêutico para pontos de dor e disfunções musculares, com
-                  avaliação individual e aplicação criteriosa.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="acompanhamento" class="section process">
-          <div class="container">
-            <div class="section-heading" data-reveal="up">
-              <span class="section-tag">Acompanhamento</span>
-              <h2 class="section-title">Como funciona</h2>
-              <p class="section-subtitle">
-                Um processo simples para entender sua necessidade e começar com mais
-                clareza.
-              </p>
-            </div>
-
-            <div class="process-grid">
-              <article class="process-card" data-reveal="up">
-                <span class="process-number">1</span>
-                <h3>Conversa inicial</h3>
-                <p>
-                  Entendo seu momento, sintomas, limitações e objetivos para definir
-                  o melhor ponto de partida.
-                </p>
-              </article>
-              <article class="process-card" data-reveal="up" style="--reveal-delay: 0.08s">
-                <span class="process-number">2</span>
-                <h3>Avaliação e plano</h3>
-                <p>
-                  Organizo a conduta com foco em conforto, mobilidade e funcionalidade
-                  para a rotina diária.
-                </p>
-              </article>
-              <article class="process-card" data-reveal="up" style="--reveal-delay: 0.16s">
-                <span class="process-number">3</span>
-                <h3>Evolução contínua</h3>
-                <p>
-                  O atendimento evolui com você, com ajustes frequentes e metas
-                  possíveis de acompanhar.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section cta">
-          <div class="container cta-shell" data-reveal="up">
-            <span class="section-tag section-tag--inverse">Agendamento</span>
-            <h2 class="cta-title">
-              Se você quer entender o que faz sentido para o seu caso, o primeiro
-              passo é uma avaliação fisioterapêutica.
-            </h2>
-            <p class="cta-text">
-              Nessa avaliação, analiso seu momento, objetivos e limitações para
-              definir a melhor conduta para o seu tratamento domiciliar.
-            </p>
-            <button class="btn btn--primary btn--lg" type="button" onclick="openWhatsApp()">
-              Agendar avaliação
-            </button>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <footer id="contato" class="footer">
-      <div class="container footer-grid">
-        <div class="footer-block" data-reveal="up">
-          <img
-            src="assets/logo-site.png"
-            alt="Thamires Camargo - Fisioterapeuta"
-            class="footer-logo"
-            width="320"
-            height="213"
-          />
-          <h3>Thamires Camargo</h3>
-          <p>Fisioterapia domiciliar com foco em acolhimento, movimento e autonomia.</p>
-        </div>
-
-        <div class="footer-block" data-reveal="up" style="--reveal-delay: 0.08s">
-          <h4>Contato</h4>
-          <ul class="footer-list">
-            <li><i class="fas fa-phone"></i><a href="tel:+5554999549918">(54) 99954-9918</a></li>
-            <li><i class="fas fa-house-medical"></i>Atendimento exclusivamente domiciliar</li>
-            <li><i class="fas fa-certificate"></i>CREFITO 4043-02/F</li>
-          </ul>
-        </div>
-
-        <div class="footer-block" data-reveal="up" style="--reveal-delay: 0.16s">
-          <h4>Começar</h4>
-          <p>
-            O primeiro contato é uma avaliação para entender seu caso e indicar
-            o cuidado mais adequado para este momento.
-          </p>
-          <button class="btn btn--primary" type="button" onclick="openWhatsApp()">
-            Agendar avaliação
-          </button>
-        </div>
-      </div>
-      <div class="container footer-bottom">
-        <p>© 2026 Thamires Camargo. Todos os direitos reservados.</p>
-      </div>
-    </footer>
-
-    <div class="tunnel-transition" aria-hidden="true">
-      <span class="tunnel-ring tunnel-ring--1"></span>
-      <span class="tunnel-ring tunnel-ring--2"></span>
-      <span class="tunnel-ring tunnel-ring--3"></span>
-      <span class="tunnel-ring tunnel-ring--4"></span>
-      <span class="tunnel-core"></span>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </div>
 
-    <script src="app.js"></script>
-  </body>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="#sobre" class="mobile-link" data-nav>Sobre</a>
+      <a href="#atendimentos" class="mobile-link" data-nav>Atendimentos</a>
+      <a href="#acompanhamento" class="mobile-link" data-nav>Como funciona</a>
+      <a href="#contato" class="mobile-link" data-nav>Contato</a>
+      <button class="btn-primary mobile-cta" onclick="openWhatsApp()">Agendar avaliação</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-blob hero-blob--1"></div>
+        <div class="hero-blob hero-blob--2"></div>
+        <div class="hero-lines">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Atendimento em Passo Fundo · RS
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-line">Fisioterapia</span>
+            <span class="title-line title-line--italic">que vai até</span>
+            <span class="title-line">você</span>
+          </h1>
+
+          <p class="hero-desc">
+            Cuidado domiciliar para recuperar movimento, aliviar dor e devolver segurança à sua rotina — com expertise oncológica e olhar humano.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="openWhatsApp()">
+              <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+            </button>
+            <a href="#sobre" class="btn-ghost" data-nav>
+              Saiba mais <i class="fas fa-arrow-down"></i>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">3+</span>
+              <span class="stat-label">Anos exp. hospitalar</span>
+            </div>
+            <div class="stat-div"></div>
+            <div class="stat">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Atendimento domiciliar</span>
+            </div>
+            <div class="stat-div"></div>
+            <div class="stat">
+              <span class="stat-num">CREFITO</span>
+              <span class="stat-label">4043-02/F</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-photo-wrap">
+            <img src="assets/foto-nova.jpeg" alt="Thamires Camargo" class="hero-photo" />
+            <div class="photo-card">
+              <i class="fas fa-house-medical"></i>
+              <div>
+                <strong>Atendimento domiciliar</strong>
+                <span>No conforto da sua casa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section about">
+      <div class="section-inner">
+        <div class="about-grid">
+
+          <div class="about-visual" data-reveal>
+            <div class="portrait-wrap">
+              <img src="assets/foto-hero-640.jpg" alt="Thamires Camargo" class="portrait-img" />
+              <div class="portrait-badge">
+                <span class="tag-name">Thamires Camargo</span>
+                <span class="tag-cred">Fisioterapeuta · CREFITO 4043-02/F</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-text" data-reveal data-reveal-delay="0.12">
+            <span class="eyebrow">Quem sou eu</span>
+            <h2 class="section-title">Um cuidado<br /><em>próximo de você</em></h2>
+
+            <p class="about-lead">
+              Sou Thamires Camargo, fisioterapeuta especialista em oncologia com mais de 3 anos de experiência hospitalar — e agora levo esse cuidado até a sua casa.
+            </p>
+            <p class="about-body">
+              Cada sessão é planejada a partir da sua realidade: dor, rotina, objetivos e o que faz sentido para o seu momento.
+            </p>
+
+            <div class="about-pills">
+              <span class="pill"><i class="fas fa-check"></i> Avaliação individual</span>
+              <span class="pill"><i class="fas fa-check"></i> Plano personalizado</span>
+              <span class="pill"><i class="fas fa-check"></i> Reavaliações periódicas</span>
+              <span class="pill"><i class="fas fa-check"></i> Especialização oncológica</span>
+            </div>
+
+            <blockquote class="about-quote">
+              "O cuidado começa quando alguém te vê de verdade — não como um diagnóstico, mas como uma pessoa com história e objetivos próprios."
+            </blockquote>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ATENDIMENTOS -->
+    <section id="atendimentos" class="section services">
+      <div class="section-inner">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Atendimentos</span>
+          <h2 class="section-title">O que posso fazer<br /><em>por você</em></h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-item service-item--featured" data-reveal>
+            <div class="svc-featured-top">
+              <span class="svc-num">01</span>
+              <i class="fas fa-ribbon svc-icon-lg" aria-hidden="true"></i>
+            </div>
+            <div class="svc-body">
+              <h3>Atendimento oncológico</h3>
+              <p>Reabilitação com condutas seguras para dor, fadiga, mobilidade e funcionalidade durante e após o tratamento.</p>
+              <span class="svc-badge">Especialidade</span>
+            </div>
+          </article>
+
+          <article class="service-item" data-reveal data-reveal-delay="0.08">
+            <span class="svc-num">02</span>
+            <div class="svc-body">
+              <h3>Pessoa idosa</h3>
+              <p>Equilíbrio, força, marcha e autonomia — prevenção de quedas e qualidade de vida.</p>
+            </div>
+            <i class="fas fa-person-walking svc-icon" aria-hidden="true"></i>
+          </article>
+
+          <article class="service-item" data-reveal data-reveal-delay="0.16">
+            <span class="svc-num">03</span>
+            <div class="svc-body">
+              <h3>Liberação miofascial</h3>
+              <p>Técnica manual para aliviar tensões, reduzir dor e melhorar mobilidade de forma progressiva.</p>
+            </div>
+            <i class="fas fa-hands svc-icon" aria-hidden="true"></i>
+          </article>
+
+          <article class="service-item" data-reveal data-reveal-delay="0.24">
+            <span class="svc-num">04</span>
+            <div class="svc-body">
+              <h3>Agulhamento a seco</h3>
+              <p>Recurso para pontos de dor e disfunções musculares com avaliação individual criteriosa.</p>
+            </div>
+            <i class="fas fa-syringe svc-icon" aria-hidden="true"></i>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="acompanhamento" class="section process">
+      <div class="section-inner">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Acompanhamento</span>
+          <h2 class="section-title">Como funciona<br /><em>na prática</em></h2>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step" data-reveal>
+            <div class="step-num">1</div>
+            <h3>Avaliação inicial</h3>
+            <p>Agendamos uma avaliação fisioterapêutica no seu domicílio para entender seu momento, limitações e objetivos.</p>
+          </div>
+          <div class="process-step" data-reveal data-reveal-delay="0.1">
+            <div class="step-num">2</div>
+            <h3>Avaliação e plano</h3>
+            <p>Avaliação no domicílio e conduta focada em conforto, mobilidade e funcionalidade.</p>
+          </div>
+          <div class="process-step" data-reveal data-reveal-delay="0.2">
+            <div class="step-num">3</div>
+            <h3>Evolução contínua</h3>
+            <p>O atendimento evolui com você — ajustes frequentes e metas possíveis de acompanhar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" data-reveal>
+      <div class="cta-inner">
+        <div class="cta-rings" aria-hidden="true">
+          <div class="cta-ring cta-ring--1"></div>
+          <div class="cta-ring cta-ring--2"></div>
+          <div class="cta-ring cta-ring--3"></div>
+        </div>
+        <div class="cta-content">
+          <span class="eyebrow eyebrow--light">Agendamento</span>
+          <h2 class="cta-title">O primeiro passo é<br /><em>uma avaliação</em></h2>
+          <p>Analiso seu momento, objetivos e limitações para definir a melhor conduta domiciliar.</p>
+          <button class="btn-primary btn-light" onclick="openWhatsApp()">
+            <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contato" class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-site.png" alt="TC" class="footer-logo" />
+        <div>
+          <strong>Thamires Camargo</strong>
+          <span>Fisioterapia domiciliar</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="#sobre" data-nav>Sobre</a>
+        <a href="#atendimentos" data-nav>Atendimentos</a>
+        <a href="#acompanhamento" data-nav>Como funciona</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="tel:+5554999549918"><i class="fas fa-phone"></i> (54) 99954-9918</a>
+        <span><i class="fas fa-house-medical"></i> Atendimento domiciliar</span>
+        <span><i class="fas fa-certificate"></i> CREFITO 4043-02/F</span>
+      </div>
+
+      <div class="footer-col">
+        <h4>Começar</h4>
+        <p>Uma avaliação para entender seu caso e indicar o melhor cuidado.</p>
+        <button class="btn-footer-cta" onclick="openWhatsApp()">
+          Agendar avaliação <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Thamires Camargo. Todos os direitos reservados.</p>
+      <p>Passo Fundo · RS</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>
