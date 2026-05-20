@@ -901,6 +901,8 @@ ul, ol { list-style: none; }
   gap: 0.5rem;
 }
 .footer-bottom p { font-size: 0.67rem; color: rgba(246,242,235,0.24); }
+.footer-dev-link { color: rgba(246,242,235,0.38); text-decoration: none; transition: color 0.2s; }
+.footer-dev-link:hover { color: rgba(246,242,235,0.72); }
 
 /* ═══════════════════════════════════════════
    RESPONSIVE — MOBILE-FIRST
