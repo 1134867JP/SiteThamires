@@ -954,7 +954,7 @@ ul, ol { list-style: none; }
 /* ── Tablet (600–899px) ── */
 @media (min-width: 600px) {
   .services-grid { grid-template-columns: 1fr 1fr; }
-  .service-item--featured { grid-column: auto; }
+  .service-item--featured { grid-column: 1 / -1; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
   .process-steps { grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -992,7 +992,7 @@ ul, ol { list-style: none; }
   }
 
   .services-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-  .service-item--featured { grid-column: auto; }
+  .service-item--featured { grid-column: 1 / -1; }
 
   .process-steps { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 
