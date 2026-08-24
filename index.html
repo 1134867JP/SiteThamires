@@ -108,7 +108,7 @@
         <a href="#contato" class="nav-link" data-nav>Contato</a>
       </nav>
 
-      <button class="header-cta" onclick="openWhatsApp()">
+      <button class="header-cta" data-cta-location="header" onclick="openWhatsApp(this)">
         Agendar avaliação <i class="fas fa-arrow-right"></i>
       </button>
 
@@ -122,7 +122,7 @@
       <a href="#atendimentos" class="mobile-link" data-nav>Atendimentos</a>
       <a href="#acompanhamento" class="mobile-link" data-nav>Como funciona</a>
       <a href="#contato" class="mobile-link" data-nav>Contato</a>
-      <button class="btn-primary mobile-cta" onclick="openWhatsApp()">Agendar avaliação</button>
+      <button class="btn-primary mobile-cta" data-cta-location="menu_mobile" onclick="openWhatsApp(this)">Agendar avaliação</button>
     </div>
   </header>
 
@@ -149,7 +149,7 @@
           </p>
 
           <div class="hero-actions">
-            <button class="btn-primary" onclick="openWhatsApp()">
+            <button class="btn-primary" data-cta-location="hero" onclick="openWhatsApp(this)">
               <i class="fab fa-whatsapp"></i> Falar no WhatsApp
             </button>
             <a href="#sobre" class="btn-ghost" data-nav>
@@ -310,7 +310,7 @@
           <span class="eyebrow eyebrow--light">Agendamento</span>
           <h2 class="cta-title">O primeiro passo é<br /><em>uma avaliação</em></h2>
           <p>Analiso seu momento, objetivos e limitações para definir a melhor conduta domiciliar.</p>
-          <button class="btn-primary btn-light" onclick="openWhatsApp()">
+          <button class="btn-primary btn-light" data-cta-location="cta_final" onclick="openWhatsApp(this)">
             <i class="fab fa-whatsapp"></i> Agendar pelo WhatsApp
           </button>
         </div>
@@ -347,7 +347,7 @@
       <div class="footer-col">
         <h4>Começar</h4>
         <p>Uma avaliação para entender seu caso e indicar o melhor cuidado.</p>
-        <button class="btn-footer-cta" onclick="openWhatsApp()">
+        <button class="btn-footer-cta" data-cta-location="footer" onclick="openWhatsApp(this)">
           Agendar avaliação <i class="fas fa-arrow-right"></i>
         </button>
       </div>
@@ -360,6 +360,8 @@
     </div>
   </footer>
 
+  <script src="tracking-config.js"></script>
+  <script src="tracking.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

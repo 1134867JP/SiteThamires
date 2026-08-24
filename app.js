@@ -150,7 +150,10 @@ setupReveal();
 // Data-animate elements use CSS keyframe animations (no JS needed for delay chain)
 
 // ── WHATSAPP ──────────────────────────────────
-function openWhatsApp() {
+function openWhatsApp(trigger) {
+  const ctaLocation = trigger?.dataset?.ctaLocation || "unknown";
+  window.LeadTracking?.trackWhatsAppClick(ctaLocation);
+
   const text = "Olá.\nGostaria de agendar uma avaliação fisioterapêutica domiciliar.";
   const url = `https://wa.me/5554999549918?text=${encodeURIComponent(text)}`;
   window.open(url, "_blank", "noopener");
