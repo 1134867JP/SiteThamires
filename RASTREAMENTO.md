@@ -37,7 +37,7 @@ Também são armazenados `utm_term`, `utm_content`, `gclid` e `fbclid`. A primei
 ## Teste
 
 1. Abra o site com UTMs de teste.
-2. Clique em cada chamada para WhatsApp e confirme a referência na mensagem.
+2. Clique em cada chamada para WhatsApp e confirme que a mensagem permanece limpa.
 3. Use o DebugView do GA4, o Tag Assistant e o Meta Pixel Helper para validar os eventos.
 4. No GA4, marque `whatsapp_click` e `generate_lead` como eventos principais se forem usados como conversão.
 
