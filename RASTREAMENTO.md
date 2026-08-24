@@ -32,7 +32,7 @@ Use pelo menos:
 ?utm_source=instagram&utm_medium=paid_social&utm_campaign=nome_da_campanha
 ```
 
-Também são armazenados `utm_term`, `utm_content`, `gclid` e `fbclid`. A primeira e a última origem ficam no `localStorage`. Nos acessos identificados, uma referência curta de origem/campanha é acrescentada à mensagem enviada pelo visitante no WhatsApp.
+Também são armazenados `utm_term`, `utm_content`, `gclid` e `fbclid`. A primeira e a última origem ficam no `localStorage` e são enviadas somente como parâmetros dos eventos de análise; a mensagem do WhatsApp permanece limpa para o visitante.
 
 ## Teste
 
