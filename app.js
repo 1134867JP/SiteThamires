@@ -150,8 +150,13 @@ setupReveal();
 // Data-animate elements use CSS keyframe animations (no JS needed for delay chain)
 
 // ── WHATSAPP ──────────────────────────────────
-function openWhatsApp() {
-  const text = "Olá.\nGostaria de agendar uma avaliação fisioterapêutica domiciliar.";
+function openWhatsApp(trigger) {
+  const ctaLocation = trigger?.dataset?.ctaLocation || "unknown";
+  window.LeadTracking?.trackWhatsAppClick(ctaLocation);
+
+  const attribution = window.LeadTracking?.getAttributionSummary() || "";
+  const reference = attribution ? `\n\nRef. do anúncio: ${attribution}` : "";
+  const text = `Olá.\nGostaria de agendar uma avaliação fisioterapêutica domiciliar.${reference}`;
   const url = `https://wa.me/5554999549918?text=${encodeURIComponent(text)}`;
   window.open(url, "_blank", "noopener");
 }
