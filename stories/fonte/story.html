@@ -9,14 +9,11 @@
   .grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:multiply;
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
   .layer{position:absolute;inset:0}
-  .c{position:absolute;left:0;right:0;text-align:center;color:#4a3a30}
+  .c{position:absolute;left:0;right:0;text-align:center;color:#492914}
   .script{font-family:'Great Vibes',cursive;font-weight:400}
   .sans{font-family:'Montserrat',sans-serif;font-weight:400;text-transform:uppercase}
   .mask{-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
-  .line{position:absolute;height:2px;background:#5a4a3f;opacity:.85}
-  .photo{position:absolute;overflow:hidden;border-radius:520px 520px 28px 28px;box-shadow:0 30px 80px rgba(70,50,35,.25)}
-  .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
-  .chip{display:inline-block;margin:0 auto}
+  .line{position:absolute;height:2px;background:#5b3a26;opacity:.85}
 </style></head>
 <body><div id="stage">
   <div class="bg" id="bg">
@@ -31,7 +28,6 @@
 </div>
 <script>
 const P = new URLSearchParams(location.search);
-const V = P.get('v') || '1';
 const C = document.getElementById('content');
 const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const prog=(t,a,b)=>clamp((t-a)/(b-a));
@@ -41,28 +37,30 @@ const eback=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow
 const $=h=>{const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild};
 
 // ---------- shared blocks ----------
-function brand(y){
-  const g=$(`<div style="position:absolute;left:0;right:0;top:${y}px;height:300px">
-    <div class="c script mask" data-k="mono" style="top:0;font-size:230px;line-height:230px;letter-spacing:0">T</div>
-    <div class="c sans" data-k="name" style="top:225px;font-size:38px;letter-spacing:.22em;padding-left:.22em">Thamires Camargo</div>
-    <div class="line" data-k="l1" style="top:298px;left:315px;width:70px"></div>
-    <div class="c sans" data-k="fisio" style="top:282px;font-size:22px;letter-spacing:.32em;padding-left:.32em;font-weight:500">Fisioterapia</div>
-    <div class="line" data-k="l2" style="top:298px;left:695px;width:70px"></div>
-  </div>`);
+// logo oficial recortado em partes (coordenadas do logo-original.png, 1199x1312)
+const LOGO={mono:[445,415,785,672],name:[80,700,1115,770],l1:[139,795,285,842],fisio:[338,795,861,842],l2:[913,795,1061,842]};
+const LS=.56, LX=x=>540+(x-596)*LS, LY=y=>285+(y-428)*LS;
+function brand(){
+  const g=document.createElement('div'); g.style.cssText='position:absolute;inset:0';
+  for(const [k,[x0,y0,x1,y1]] of Object.entries(LOGO)){
+    const im=document.createElement('img'); im.src=`logo-${k}.png`; im.dataset.k=k; im.className='mask';
+    im.style.cssText+=`;position:absolute;left:${LX(x0)}px;top:${LY(y0)}px;width:${(x1-x0)*LS}px;height:${(y1-y0)*LS}px`;
+    g.append(im);
+  }
   return g;
 }
 function teaser(y){
   return $(`<div style="position:absolute;left:0;right:0;top:${y}px;height:600px">
     <div class="line" data-k="d1" style="top:42px;left:242px;width:230px;height:1.6px"></div>
     <svg data-k="heart" style="position:absolute;left:505px;top:4px;overflow:visible" width="70" height="80" viewBox="0 0 70 80">
-      <path id="hp" d="M35 74 C 28 60, 4 44, 6 22 C 8 6, 28 2, 35 22 C 40 4, 62 6, 63 24 C 64 44, 44 58, 35 74" fill="none" stroke="#4a3a30" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="hp" d="M35 74 C 28 60, 4 44, 6 22 C 8 6, 28 2, 35 22 C 40 4, 62 6, 63 24 C 64 44, 44 58, 35 74" fill="none" stroke="#492914" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <div class="line" data-k="d2" style="top:42px;left:610px;width:230px;height:1.6px"></div>
     <div class="c script mask" data-k="novidade" style="top:100px;font-size:235px;line-height:300px;left:-40px">Novidade</div>
     <svg data-k="spark" style="position:absolute;left:905px;top:62px;overflow:visible" width="130" height="140">
-      <path d="M22 10 L 30 62" stroke="#4a3a30" stroke-width="7" stroke-linecap="round"/>
-      <path d="M50 78 L 105 38" stroke="#4a3a30" stroke-width="7" stroke-linecap="round"/>
-      <path d="M62 112 L 118 108" stroke="#4a3a30" stroke-width="7" stroke-linecap="round"/>
+      <path d="M22 10 L 30 62" stroke="#492914" stroke-width="7" stroke-linecap="round"/>
+      <path d="M50 78 L 105 38" stroke="#492914" stroke-width="7" stroke-linecap="round"/>
+      <path d="M62 112 L 118 108" stroke="#492914" stroke-width="7" stroke-linecap="round"/>
     </svg>
     <div class="c sans" data-k="cheg" style="top:405px;font-size:56px;letter-spacing:.5em;padding-left:.5em;font-weight:400"></div>
   </div>`);
@@ -82,13 +80,13 @@ function wipeDown(el,p,soft=20){
 
 function animBrand(g,t,t0){
   const mono=q(g,'mono'),name=q(g,'name'),fisio=q(g,'fisio'),l1=q(g,'l1'),l2=q(g,'l2');
-  const pm=prog(t,t0,t0+1.4); wipe(mono,eio(pm),25); mono.style.transform=`translateY(${(1-eo(pm))*14}px)`;
+  const pm=prog(t,t0,t0+1.5); wipe(mono,eio(pm),25); mono.style.transform=`translateY(${(1-eo(pm))*14}px)`;
   const pn=eo(prog(t,t0+.8,t0+2.2));
-  name.style.opacity=pn; name.style.letterSpacing=(.5-.28*pn)+'em'; name.style.filter=`blur(${(1-pn)*8}px)`;
+  name.style.opacity=pn; name.style.transform=`scaleX(${1.12-.12*pn})`; name.style.filter=`blur(${(1-pn)*8}px)`;
   const pl=eo(prog(t,t0+1.6,t0+2.5));
   l1.style.transformOrigin='right center';l2.style.transformOrigin='left center';
   l1.style.transform=l2.style.transform=`scaleX(${pl})`;
-  fisio.style.opacity=eo(prog(t,t0+1.8,t0+2.6)); fisio.style.transform=`translateY(${(1-eo(prog(t,t0+1.8,t0+2.6)))*10}px)`;
+  const pf=eo(prog(t,t0+1.8,t0+2.6)); fisio.style.opacity=pf; fisio.style.transform=`translateY(${(1-pf)*10}px)`;
 }
 function animTeaser(g,t,t0,dur){
   const d1=q(g,'d1'),d2=q(g,'d2'),heart=q(g,'heart'),hp=g.querySelector('#hp'),nov=q(g,'novidade'),sp=q(g,'spark'),ch=q(g,'cheg');
@@ -111,52 +109,13 @@ function animTeaser(g,t,t0,dur){
 }
 
 // ---------- videos ----------
-let DUR, build, draw;
-if(V==='1'){ // teaser animado fiel à arte
-  DUR=11;
-  const b=brand(250), te=teaser(660); C.append(b,te);
-  draw=t=>{
-    const z=1+.035*eio(t/DUR); C.style.transform=`scale(${z})`; C.style.transformOrigin='50% 45%';
-    animBrand(b,t,.5); animTeaser(te,t,3.0,DUR);
-    const fin=prog(t,DUR-.6,DUR); C.style.opacity=1-fin*0; // keep visible at end (loops nicely in stories)
-  };
-} else { // apresentação: foto + especialidades + teaser
-  DUR=16;
-  const b=brand(250);
-  const ph=$(`<div class="photo" style="left:250px;top:700px;width:580px;height:800px"><img src="../../assets/foto-nova.jpeg"></div>`);
-  const hi=$(`<div style="position:absolute;left:0;right:0;top:1545px">
-      <div class="c script" data-k="ola" style="top:0;font-size:110px;line-height:120px">Olá, eu sou a Thamires</div>
-      <div class="c sans" data-k="sub" style="top:150px;font-size:27px;letter-spacing:.24em;padding-left:.24em">Fisioterapia domiciliar · Passo Fundo</div>
-    </div>`);
-  const sv=$(`<div style="position:absolute;left:0;right:0;top:760px">
-      <div class="c sans" data-k="vou" style="top:0;font-size:30px;letter-spacing:.3em;padding-left:.3em">Eu vou até você</div>
-      ${['Fisioterapia oncológica','Fisioterapia para idosos','Pós-alta hospitalar'].map((s,i)=>`
-      <div class="c" data-k="s${i}" style="top:${130+i*190}px">
-        <div class="script" style="font-size:100px;line-height:130px;white-space:nowrap">${s}</div>
-      </div>`).join('')}
-      <div class="line" data-k="sl" style="top:85px;left:470px;width:140px"></div>
-    </div>`);
-  const te=teaser(660);
-  C.append(b,ph,hi,sv,te);
-  draw=t=>{
-    animBrand(b,t,.4);
-    // fase 1: foto (2.4 -> 6.2)
-    const pin=eo(prog(t,2.2,3.4)), pout=eio(prog(t,6.0,6.8));
-    ph.style.opacity=pin*(1-pout);
-    ph.style.transform=`translateY(${(1-pin)*60 - pout*40}px) scale(${1.0+.04*prog(t,2.2,6.8)})`;
-    ph.style.clipPath=`inset(${(1-eio(prog(t,2.2,3.6)))*100}% 0 0 0 round 290px 290px 28px 28px)`;
-    const ola=q(hi,'ola'), sub=q(hi,'sub');
-    const po=prog(t,3.2,4.6); wipe(ola,eio(po),10); ola.style.opacity=(po>0?1:0)*(1-pout);
-    const ps=eo(prog(t,4.4,5.2)); sub.style.opacity=ps*(1-pout); sub.style.transform=`translateY(${(1-ps)*12}px)`;
-    // fase 2: especialidades (6.8 -> 10.6)
-    const sout=eio(prog(t,10.4,11.1));
-    const pv=eo(prog(t,6.8,7.5)); const vou=q(sv,'vou'); vou.style.opacity=pv*(1-sout); vou.style.letterSpacing=(.5-.2*pv)+'em';
-    const sl=q(sv,'sl'); sl.style.transform=`scaleX(${eio(prog(t,7.0,7.8))})`; sl.style.opacity=.85*(1-sout);
-    [0,1,2].forEach(i=>{const e=q(sv,'s'+i); const p=prog(t,7.5+i*.75,8.6+i*.75); wipe(e,eio(p),10); e.style.opacity=(p>0?1:0)*(1-sout); e.style.transform=`translateY(${-sout*20}px)`;});
-    // fase 3: teaser
-    animTeaser(te,t,11.0,DUR);
-  };
-}
+// teaser animado "Novidade chegando..."
+const DUR=11;
+const b=brand(), te=teaser(660); C.append(b,te);
+const draw=t=>{
+  const z=1+.035*eio(t/DUR); C.style.transform=`scale(${z})`; C.style.transformOrigin='50% 45%';
+  animBrand(b,t,.5); animTeaser(te,t,3.0,DUR);
+};
 window.DUR=DUR; window.render=t=>draw(t);
 // background drift
 const blobs=[...document.querySelectorAll('.blob')];

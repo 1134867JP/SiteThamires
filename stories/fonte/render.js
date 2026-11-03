@@ -1,9 +1,9 @@
 const { chromium } = require('playwright');
 const path=require('path'), fs=require('fs');
 (async()=>{
-  const [,,v,out,mode,...times]=process.argv;
+  const [,,out,mode,...times]=process.argv;
   const b=await chromium.launch(); const p=await b.newPage({viewport:{width:1080,height:1920},deviceScaleFactor:1});
-  await p.goto('file://'+path.resolve(__dirname,'story.html')+'?v='+v,{waitUntil:'networkidle'});
+  await p.goto('file://'+path.resolve(__dirname,'story.html')+'',{waitUntil:'networkidle'});
   await p.evaluate(()=>window.ready);
   const dur=await p.evaluate(()=>window.DUR);
   fs.mkdirSync(out,{recursive:true});
