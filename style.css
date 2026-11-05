@@ -1197,3 +1197,52 @@ ul, ol { list-style: none; }
 @media (min-width: 900px) {
   .page-hero { padding: calc(var(--header-h) + 4.5rem) 0 4.5rem; }
 }
+
+/* ═══════════════════════════════════════════
+   ONDE ATENDO
+═══════════════════════════════════════════ */
+.locations { background: var(--white); }
+.locations-grid { display: grid; gap: 1.25rem; }
+.place-card {
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+  padding: 1.75rem;
+  background: var(--sage);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+.place-card--home { background: var(--forest); color: var(--white); border-color: transparent; }
+.place-icon { font-size: 1.5rem; color: var(--pine); opacity: 0.55; margin-bottom: 0.6rem; }
+.place-card--home .place-icon { color: var(--amber); opacity: 0.8; }
+.place-card h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.25rem, 2.6vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.place-sub {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--pine);
+}
+.place-card--home .place-sub { color: var(--amber); }
+.place-card p:not(.place-sub) { font-size: 0.88rem; color: var(--ink-60); line-height: 1.72; max-width: 46ch; }
+.place-card--home p:not(.place-sub) { color: rgba(246,242,235,0.66); }
+.place-card .svc-link { margin-top: 0.4rem; }
+
+@media (max-width: 479px) {
+  .place-card { padding: 1.4rem; border-radius: var(--r-md); }
+}
+@media (min-width: 600px) {
+  .locations-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Menu com 5 itens: evita quebra de linha em telas médias */
+.nav-link { white-space: nowrap; }
+@media (min-width: 900px) and (max-width: 1099px) {
+  .nav-link { padding: 0.45rem 0.55rem; }
+  .logo-img { height: 34px; width: auto; }
+}
