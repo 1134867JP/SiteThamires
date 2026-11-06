@@ -1237,6 +1237,7 @@ ul, ol { list-style: none; }
 /* ═══════════════════════════════════════════
    HERO: a foto como capa, com nome e CREFITO
 ═══════════════════════════════════════════ */
+.hero-photo-wrap picture { display: block; width: 100%; height: 100%; }
 .hero-photo-wrap::after {
   content: "";
   position: absolute;
@@ -1320,6 +1321,7 @@ ul, ol { list-style: none; }
 @media (max-width: 599px) {
   .hero-title { font-size: clamp(2.4rem, 11vw, 3rem); }
   .hero-left { gap: 0.9rem; }
+  .hero-photo { object-position: center 12%; }
 }
 @media (max-width: 399px) {
   .hero-photo-cred span:not(.hero-photo-sep) { display: block; }
