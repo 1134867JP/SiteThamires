@@ -1236,18 +1236,37 @@ ul, ol { list-style: none; }
 }
 
 /* ═══════════════════════════════════════════
-   HERO NO CELULAR: a Thamires recortada, surgindo do fundo
+   CELULAR: cabeçalho enxuto e topo com a foto surgindo
 ═══════════════════════════════════════════ */
+.logo-mark { display: none; height: 36px; width: auto; }
+.header-cta-mobile { display: none; }
 .hero-id { display: none; }
 
 @keyframes emerge {
-  from { opacity: 0; transform: translateY(28px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: none; }
 }
 
 @media (max-width: 899px) {
-  .hero { min-height: auto; padding-top: calc(var(--header-h) + 0.5rem); padding-bottom: 3rem; }
-  .hero-content { gap: 1.25rem; }
+  /* cabeçalho: monograma, botão Agendar e menu */
+  .header-cta-mobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-left: auto;
+    padding: 0.6rem 1.05rem;
+    background: var(--pine);
+    color: var(--white);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: var(--r-pill);
+    box-shadow: 0 6px 18px rgba(14, 46, 38, 0.18);
+  }
+  .header-cta-mobile i { font-size: 1rem; }
+  .menu-toggle { margin-left: 0; }
+
+  .hero { min-height: auto; padding-top: var(--header-h); padding-bottom: 3rem; }
+  .hero-content { gap: 0; }
   .hero-right {
     display: block;
     order: -1;
@@ -1255,22 +1274,10 @@ ul, ol { list-style: none; }
   }
   .hero-photo-outer {
     position: relative;
-    max-width: min(58vw, 290px, calc(44svh / 1.58));
+    max-width: min(66vw, 300px, calc(46svh / 1.58));
     margin: 0 auto;
-    padding-top: 0.5rem;
   }
-  /* arco suave atrás dela, que some junto com a foto */
-  .hero-photo-outer::before {
-    content: "";
-    position: absolute;
-    inset: 22% 4% 9% 4%;
-    border: 0;
-    border-radius: 999px 999px 0 0;
-    background: #e2e5dc;
-    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
-            mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
-    z-index: 0;
-  }
+  .hero-photo-outer::before { display: none; }
   .hero-photo-wrap {
     aspect-ratio: auto;
     border-radius: 0;
@@ -1279,33 +1286,67 @@ ul, ol { list-style: none; }
     background: none;
   }
   .hero-photo-wrap picture { display: block; }
-  .hero-photo {
-    position: relative;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+  .hero-photo { width: 100%; height: auto; object-fit: contain; }
+
+  /* nome e profissão sobre o fim da foto, alinhados à esquerda */
+  .hero-left { gap: 1.1rem; margin-top: -3.2rem; position: relative; z-index: 1; }
+  .hero-id { display: grid; gap: 0.3rem; }
+  .hero-id-name {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.9rem, 8.5vw, 2.3rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
   }
-  .hero-id {
-    position: relative;
-    z-index: 1;
-    display: block;
-    margin-top: -1.4rem;
-    text-align: center;
-    font-size: 0.6rem;
+  .hero-id-role {
+    font-size: 0.66rem;
     font-weight: 600;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    white-space: nowrap;
-    color: var(--ink-60);
+    color: var(--pine);
   }
-  .hero-left { text-align: left; }
+
+  /* etiqueta com o local */
+  .hero-badge {
+    gap: 0.6rem;
+    padding: 0.45rem 0.9rem 0.45rem 0.45rem;
+    background: rgba(255, 255, 254, 0.75);
+    border: 1px solid var(--line);
+    border-radius: var(--r-pill);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+  }
+  .hero-badge::before {
+    content: "✓";
+    display: grid;
+    place-items: center;
+    width: 1.5rem; height: 1.5rem;
+    border-radius: 50%;
+    background: var(--fern-lt);
+    color: var(--pine);
+    font-size: 0.72rem;
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  /* um botão só, de largura total */
+  .hero-actions .btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 1.05rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  .hero-actions .btn-ghost { display: none; }
+  .hero-stats { display: none; }
 }
 @media (max-width: 599px) {
-  .hero-title { font-size: clamp(2.4rem, 11vw, 3rem); }
-  .hero-left { gap: 0.9rem; }
-}
-@media (max-width: 399px) {
-  .hero-id { letter-spacing: 0.12em; }
+  .logo-img { display: none; }
+  .logo-mark { display: block; }
+  .hero-title { font-size: clamp(2.2rem, 10vw, 2.7rem); }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-right { animation: none; opacity: 1; }
