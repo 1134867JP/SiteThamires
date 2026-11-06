@@ -1072,9 +1072,6 @@ ul, ol { list-style: none; }
   gap: 1.25rem;
   animation: fade-up 0.9s 0.1s var(--ease-out) both;
 }
-.breadcrumb ol { display: flex; flex-wrap: wrap; gap: 0.4rem; font-size: 0.75rem; color: var(--ink-60); }
-.breadcrumb li + li::before { content: "/"; margin-right: 0.4rem; opacity: 0.5; }
-.breadcrumb a { color: var(--pine); text-decoration: underline; text-underline-offset: 3px; }
 .page-title {
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(2.2rem, 6vw, 3.8rem);
