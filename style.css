@@ -1233,3 +1233,54 @@ ul, ol { list-style: none; }
   .nav-link { padding: 0.45rem 0.55rem; }
   .logo-img { height: 34px; width: auto; }
 }
+
+/* ═══════════════════════════════════════════
+   HERO: identificação da Thamires sobre a foto
+═══════════════════════════════════════════ */
+.hero-photo-tag {
+  position: absolute;
+  left: 0.85rem; right: 0.85rem; bottom: 0.85rem;
+  display: grid;
+  gap: 0.1rem;
+  width: fit-content;
+  padding: 0.7rem 1rem;
+  background: rgba(255, 255, 254, 0.92);
+  border-radius: var(--r-sm);
+  box-shadow: 0 6px 24px rgba(14, 46, 38, 0.14);
+}
+.hero-photo-tag strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--pine);
+  line-height: 1.2;
+}
+.hero-photo-tag span {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-60);
+}
+
+/* No celular e tablet a foto vem primeiro: é a primeira coisa que a pessoa vê */
+@media (max-width: 899px) {
+  .hero { min-height: auto; padding-top: calc(var(--header-h) + 1rem); }
+  .hero-content { gap: 1.75rem; }
+  .hero-right { display: block; order: -1; }
+  .hero-photo-outer { max-width: none; }
+  .hero-photo-outer::before { display: none; }
+  .hero-photo-wrap {
+    aspect-ratio: auto;
+    height: min(44svh, 420px);
+    border-radius: var(--r-md);
+  }
+  .hero-photo { object-position: center 22%; }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .hero-photo { object-position: center 8%; }
+}
+@media (max-width: 599px) {
+  .hero-title { font-size: clamp(2.4rem, 11vw, 3rem); }
+  .hero-left { gap: 0.9rem; }
+}
