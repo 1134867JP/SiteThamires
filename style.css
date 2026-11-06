@@ -1235,52 +1235,93 @@ ul, ol { list-style: none; }
 }
 
 /* ═══════════════════════════════════════════
-   HERO: identificação da Thamires sobre a foto
+   HERO: a foto como capa, com nome e CREFITO
 ═══════════════════════════════════════════ */
-.hero-photo-tag {
+.hero-photo-wrap::after {
+  content: "";
   position: absolute;
-  left: 0.85rem; right: 0.85rem; bottom: 0.85rem;
-  display: grid;
-  gap: 0.1rem;
-  width: fit-content;
-  padding: 0.7rem 1rem;
-  background: rgba(255, 255, 254, 0.92);
-  border-radius: var(--r-sm);
-  box-shadow: 0 6px 24px rgba(14, 46, 38, 0.14);
+  inset: auto 0 0 0;
+  height: 48%;
+  background: linear-gradient(to bottom, rgba(14, 46, 38, 0) 0%, rgba(14, 46, 38, 0.55) 45%, rgba(14, 46, 38, 0.92) 100%);
+  pointer-events: none;
 }
-.hero-photo-tag strong {
+.hero-photo-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  display: grid;
+  gap: 0.35rem;
+  padding: 0 1.5rem 1.4rem;
+}
+.hero-photo-name {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.05rem;
+  font-size: 1.65rem;
   font-weight: 500;
   font-style: italic;
-  color: var(--pine);
-  line-height: 1.2;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--white);
 }
-.hero-photo-tag span {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--ink-60);
+.hero-photo-cred {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e3c48f;
 }
+.hero-photo-wa { display: none; }
 
-/* No celular e tablet a foto vem primeiro: é a primeira coisa que a pessoa vê */
+/* Celular e tablet: a foto abre a página, de ponta a ponta */
+@keyframes fade-soft {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 @media (max-width: 899px) {
-  .hero { min-height: auto; padding-top: calc(var(--header-h) + 1rem); }
-  .hero-content { gap: 1.75rem; }
-  .hero-right { display: block; order: -1; }
+  .hero { min-height: auto; padding-top: var(--header-h); padding-bottom: 2.75rem; }
+  .hero-content { gap: 1.6rem; }
+  .hero-right {
+    display: block;
+    order: -1;
+    margin-inline: -1.25rem;
+    animation-name: fade-soft;
+  }
   .hero-photo-outer { max-width: none; }
   .hero-photo-outer::before { display: none; }
   .hero-photo-wrap {
     aspect-ratio: auto;
-    height: min(44svh, 420px);
-    border-radius: var(--r-md);
+    height: min(64svh, 560px);
+    border-radius: 0 0 var(--r-xl) var(--r-xl);
+    box-shadow: 0 24px 48px rgba(14, 46, 38, 0.16);
   }
-  .hero-photo { object-position: center 22%; }
+  .hero-photo { object-position: center 18%; }
+  .hero-photo-caption { padding: 0 6.25rem 1.75rem 1.5rem; }
+  .hero-photo-name { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .hero-photo-wa {
+    position: absolute;
+    right: 1.25rem; bottom: 1.6rem;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 3.5rem; height: 3.5rem;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--pine);
+    font-size: 1.6rem;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s var(--ease-out);
+  }
+  .hero-photo-wa:active { transform: scale(0.94); }
+  .hero-photo-wa:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
 }
 @media (min-width: 600px) and (max-width: 899px) {
-  .hero-photo { object-position: center 8%; }
+  .hero-photo-wrap { height: min(60svh, 620px); }
+  .hero-photo { object-position: center 12%; }
 }
 @media (max-width: 599px) {
   .hero-title { font-size: clamp(2.4rem, 11vw, 3rem); }
   .hero-left { gap: 0.9rem; }
+}
+@media (max-width: 399px) {
+  .hero-photo-cred span:not(.hero-photo-sep) { display: block; }
+  .hero-photo-sep { display: none; }
 }
