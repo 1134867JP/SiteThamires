@@ -1255,7 +1255,7 @@ ul, ol { list-style: none; }
   }
   .hero-photo-outer {
     position: relative;
-    max-width: min(76vw, 360px, calc(58svh / 1.58));
+    max-width: min(58vw, 290px, calc(44svh / 1.58));
     margin: 0 auto;
     padding-top: 0.5rem;
   }
