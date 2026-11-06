@@ -1266,7 +1266,7 @@ ul, ol { list-style: none; }
     inset: 22% 4% 9% 4%;
     border: 0;
     border-radius: 999px 999px 0 0;
-    background: var(--parchment);
+    background: #e2e5dc;
     -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
             mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
     z-index: 0;
@@ -1288,24 +1288,14 @@ ul, ol { list-style: none; }
   .hero-id {
     position: relative;
     z-index: 1;
-    display: grid;
-    justify-items: center;
-    gap: 0.3rem;
-    margin-top: -2.4rem;
+    display: block;
+    margin-top: -1.4rem;
     text-align: center;
-  }
-  .hero-id-name {
-    font-family: "Playfair Display", Georgia, serif;
-    font-style: italic;
-    font-size: 1.45rem;
-    line-height: 1.1;
-    color: var(--pine);
-  }
-  .hero-id-cred {
     font-size: 0.6rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
+    white-space: nowrap;
     color: var(--ink-60);
   }
   .hero-left { text-align: left; }
@@ -1315,7 +1305,7 @@ ul, ol { list-style: none; }
   .hero-left { gap: 0.9rem; }
 }
 @media (max-width: 399px) {
-  .hero-id-cred { letter-spacing: 0.12em; white-space: nowrap; }
+  .hero-id { letter-spacing: 0.12em; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-right { animation: none; opacity: 1; }
