@@ -485,6 +485,7 @@ ul, ol { list-style: none; }
   object-fit: cover;
   object-position: center 15%;
 }
+.hero-photo-wrap picture { display: block; width: 100%; height: 100%; }
 
 /* ═══════════════════════════════════════════
    ABOUT
@@ -1232,4 +1233,121 @@ ul, ol { list-style: none; }
 @media (min-width: 900px) and (max-width: 1099px) {
   .nav-link { padding: 0.45rem 0.55rem; }
   .logo-img { height: 34px; width: auto; }
+}
+
+/* ═══════════════════════════════════════════
+   CELULAR: cabeçalho enxuto e topo com a foto surgindo
+═══════════════════════════════════════════ */
+.logo-mark { display: none; height: 36px; width: auto; }
+.header-cta-mobile { display: none; }
+.hero-id { display: none; }
+
+@keyframes emerge {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (max-width: 899px) {
+  /* cabeçalho: monograma, botão Agendar e menu */
+  .header-cta-mobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-left: auto;
+    padding: 0.6rem 1.05rem;
+    background: var(--pine);
+    color: var(--white);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: var(--r-pill);
+    box-shadow: 0 6px 18px rgba(14, 46, 38, 0.18);
+  }
+  .header-cta-mobile i { font-size: 1rem; }
+  .menu-toggle { margin-left: 0; }
+
+  .hero { min-height: auto; padding-top: var(--header-h); padding-bottom: 3rem; }
+  .hero-content { gap: 0; }
+  .hero-right {
+    display: block;
+    order: -1;
+    animation: emerge 1.1s 0.1s var(--ease-out) both;
+  }
+  .hero-photo-outer {
+    position: relative;
+    max-width: min(66vw, 300px, calc(46svh / 1.58));
+    margin: 0 auto;
+  }
+  .hero-photo-outer::before { display: none; }
+  .hero-photo-wrap {
+    aspect-ratio: auto;
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: none;
+    background: none;
+  }
+  .hero-photo-wrap picture { display: block; }
+  .hero-photo { width: 100%; height: auto; object-fit: contain; }
+
+  /* nome e profissão sobre o fim da foto, alinhados à esquerda */
+  .hero-left { gap: 1.1rem; margin-top: -3.2rem; position: relative; z-index: 1; }
+  .hero-id { display: grid; gap: 0.3rem; }
+  .hero-id-name {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.9rem, 8.5vw, 2.3rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .hero-id-role {
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--pine);
+  }
+
+  /* etiqueta com o local */
+  .hero-badge {
+    gap: 0.6rem;
+    padding: 0.45rem 0.9rem 0.45rem 0.45rem;
+    background: rgba(255, 255, 254, 0.75);
+    border: 1px solid var(--line);
+    border-radius: var(--r-pill);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+  }
+  .hero-badge::before {
+    content: "✓";
+    display: grid;
+    place-items: center;
+    width: 1.5rem; height: 1.5rem;
+    border-radius: 50%;
+    background: var(--fern-lt);
+    color: var(--pine);
+    font-size: 0.72rem;
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  /* um botão só, de largura total */
+  .hero-actions .btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 1.05rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  .hero-actions .btn-ghost { display: none; }
+  .hero-stats { display: none; }
+}
+@media (max-width: 599px) {
+  .logo-img { display: none; }
+  .logo-mark { display: block; }
+  .hero-title { font-size: clamp(2.2rem, 10vw, 2.7rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-right { animation: none; opacity: 1; }
 }

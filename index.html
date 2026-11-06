@@ -206,7 +206,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="image" href="assets/foto-nova.jpeg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/thamires-recorte.webp" type="image/webp" media="(max-width: 899px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/foto-nova.jpeg" media="(min-width: 900px)" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
@@ -222,6 +223,7 @@
     <div class="header-inner">
       <a href="#inicio" class="logo" aria-label="Thamires Camargo">
         <img src="assets/logo-horizontal.png" alt="Thamires Camargo Fisioterapia" class="logo-img" width="849" height="120" />
+        <img src="assets/monograma.png" alt="" class="logo-mark" width="152" height="120" aria-hidden="true" />
       </a>
 
       <nav class="nav" aria-label="Principal">
@@ -234,6 +236,10 @@
 
       <button class="header-cta" data-cta-location="header" onclick="openWhatsApp(this)">
         Agendar avaliação <i class="fas fa-arrow-right"></i>
+      </button>
+
+      <button class="header-cta-mobile" data-cta-location="header_mobile" onclick="openWhatsApp(this)">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i> Agendar
       </button>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -257,8 +263,13 @@
     <section id="inicio" class="hero">
       <div class="hero-content">
         <div class="hero-left">
+          <div class="hero-id">
+            <p class="hero-id-name">Thamires Camargo</p>
+            <p class="hero-id-role">Fisioterapeuta · CREFITO 404302-F</p>
+          </div>
+
           <p class="hero-badge">
-            Fisioterapia domiciliar · Passo Fundo, RS
+            <span>Em casa e na clínica · Passo Fundo, RS</span>
           </p>
 
           <h1 class="hero-title">
@@ -268,7 +279,7 @@
           </h1>
 
           <p class="hero-desc">
-            Fisioterapia em casa, em Passo Fundo e região, e também na Salutem Clínica Integrada. Para recuperar movimento, aliviar dor e devolver segurança à sua rotina, com expertise oncológica e olhar humano.
+            Atendimento em casa ou na Salutem Clínica Integrada, com especialização em oncologia, para recuperar movimento e aliviar a dor.
           </p>
 
           <div class="hero-actions">
@@ -301,7 +312,10 @@
         <div class="hero-right">
           <div class="hero-photo-outer">
             <div class="hero-photo-wrap">
-              <img src="assets/foto-nova.jpeg" alt="Thamires Camargo, fisioterapeuta domiciliar em Passo Fundo" class="hero-photo" width="852" height="1280" fetchpriority="high" />
+              <picture>
+                <source media="(max-width: 899px)" type="image/webp" srcset="assets/thamires-recorte.webp" width="900" height="1422" />
+                <img src="assets/foto-nova.jpeg" alt="Thamires Camargo, fisioterapeuta domiciliar em Passo Fundo" class="hero-photo" width="852" height="1280" fetchpriority="high" />
+              </picture>
             </div>
           </div>
         </div>
