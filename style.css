@@ -1219,6 +1219,32 @@ ul, ol { list-style: none; }
 .place-card p:not(.place-sub) { font-size: 0.88rem; color: var(--ink-60); line-height: 1.72; max-width: 46ch; }
 .place-card--home p:not(.place-sub) { color: rgba(246,242,235,0.66); }
 .place-card .svc-link { margin-top: 0.4rem; }
+.place-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.35rem 0 0;
+  padding: 0;
+}
+.place-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  background: var(--fern-lt);
+  border: 1px solid rgba(22,79,66,0.12);
+  border-radius: var(--r-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--pine);
+}
+.place-list i { font-size: 0.52rem; color: var(--amber); }
+.place-card--home .place-list li {
+  background: rgba(246,242,235,0.08);
+  border-color: rgba(246,242,235,0.16);
+  color: var(--white);
+}
 
 @media (max-width: 479px) {
   .place-card { padding: 1.4rem; border-radius: var(--r-md); }
