@@ -1259,3 +1259,15 @@ ul, ol { list-style: none; }
   .nav-link { padding: 0.45rem 0.55rem; }
   .logo-img { height: 34px; width: auto; }
 }
+
+/* ─── CTA NOS CARTÕES DE LOCAL ───────────── */
+.place-cta { justify-self: start; margin-top: 0.9rem; }
+.place-card--home .place-cta {
+  background: var(--white);
+  color: var(--pine);
+  border-color: var(--white);
+}
+.place-card--home .place-cta:hover {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.9);
+}

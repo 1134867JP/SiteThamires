@@ -154,7 +154,12 @@ function openWhatsApp(trigger) {
   const ctaLocation = trigger?.dataset?.ctaLocation || "unknown";
   window.LeadTracking?.trackWhatsAppClick(ctaLocation);
 
-  const text = "Olá.\nGostaria de agendar uma avaliação fisioterapêutica domiciliar.";
+  const messages = {
+    domiciliar: "Olá.\nGostaria de agendar uma avaliação fisioterapêutica domiciliar.",
+    clinica: "Olá.\nGostaria de agendar uma avaliação na Salutem Clínica Integrada.",
+    profissional: "Olá, Thamires.\nSou profissional de saúde e gostaria de conversar sobre encaminhamento de pacientes."
+  };
+  const text = messages[trigger?.dataset?.waMessage] || messages.domiciliar;
   const url = `https://wa.me/5554999549918?text=${encodeURIComponent(text)}`;
   window.open(url, "_blank", "noopener");
 }
