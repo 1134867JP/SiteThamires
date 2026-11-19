@@ -1,0 +1,127 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=block" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;width:1080px;height:1920px;overflow:hidden;background:#cdb8a9}
+  #stage{position:absolute;inset:0;overflow:hidden}
+  .bg{position:absolute;inset:-200px;background:#d2bdb0}
+  .blob{position:absolute;border-radius:50%;filter:blur(140px);will-change:transform}
+  .grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+  .layer{position:absolute;inset:0}
+  .c{position:absolute;left:0;right:0;text-align:center;color:#492914}
+  .script{font-family:'Great Vibes',cursive;font-weight:400}
+  .sans{font-family:'Montserrat',sans-serif;font-weight:400;text-transform:uppercase}
+  .mask{-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+  .line{position:absolute;height:2px;background:#5b3a26;opacity:.85}
+</style></head>
+<body><div id="stage">
+  <div class="bg" id="bg">
+    <div class="blob" id="b1" style="width:1200px;height:1100px;background:#e8d6cb"></div>
+    <div class="blob" id="b2" style="width:900px;height:800px;background:#8a7c60"></div>
+    <div class="blob" id="b3" style="width:800px;height:700px;background:#c9ad9c"></div>
+    <div class="blob" id="b4" style="width:700px;height:700px;background:#a39477"></div>
+    <div class="blob" id="b5" style="width:900px;height:900px;background:#dcc7ba"></div>
+  </div>
+  <div class="grain"></div>
+  <div class="layer" id="content"></div>
+</div>
+<script>
+const P = new URLSearchParams(location.search);
+const C = document.getElementById('content');
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const prog=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);              // ease out cubic
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eback=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const $=h=>{const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild};
+
+// ---------- shared blocks ----------
+// logo oficial recortado em partes (coordenadas do logo-original.png, 1199x1312)
+const LOGO={mono:[445,415,785,672],name:[80,700,1115,770],l1:[139,795,285,842],fisio:[338,795,861,842],l2:[913,795,1061,842]};
+const LS=.56, LX=x=>540+(x-596)*LS, LY=y=>285+(y-428)*LS;
+function brand(){
+  const g=document.createElement('div'); g.style.cssText='position:absolute;inset:0';
+  for(const [k,[x0,y0,x1,y1]] of Object.entries(LOGO)){
+    const im=document.createElement('img'); im.src=`logo-${k}.png`; im.dataset.k=k; im.className='mask';
+    im.style.cssText+=`;position:absolute;left:${LX(x0)}px;top:${LY(y0)}px;width:${(x1-x0)*LS}px;height:${(y1-y0)*LS}px`;
+    g.append(im);
+  }
+  return g;
+}
+function teaser(y){
+  return $(`<div style="position:absolute;left:0;right:0;top:${y}px;height:600px">
+    <div class="line" data-k="d1" style="top:42px;left:242px;width:230px;height:1.6px"></div>
+    <svg data-k="heart" style="position:absolute;left:505px;top:4px;overflow:visible" width="70" height="80" viewBox="0 0 70 80">
+      <path id="hp" d="M35 74 C 28 60, 4 44, 6 22 C 8 6, 28 2, 35 22 C 40 4, 62 6, 63 24 C 64 44, 44 58, 35 74" fill="none" stroke="#492914" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="line" data-k="d2" style="top:42px;left:610px;width:230px;height:1.6px"></div>
+    <div class="c script mask" data-k="novidade" style="top:100px;font-size:235px;line-height:300px;left:-40px">Novidade</div>
+    <svg data-k="spark" style="position:absolute;left:905px;top:62px;overflow:visible" width="130" height="140">
+      <path d="M22 10 L 30 62" stroke="#492914" stroke-width="7" stroke-linecap="round"/>
+      <path d="M50 78 L 105 38" stroke="#492914" stroke-width="7" stroke-linecap="round"/>
+      <path d="M62 112 L 118 108" stroke="#492914" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <div class="c sans" data-k="cheg" style="top:405px;font-size:56px;letter-spacing:.5em;padding-left:.5em;font-weight:400"></div>
+  </div>`);
+}
+const q=(root,k)=>root.querySelector(`[data-k="${k}"]`);
+function setChars(el,text,keep){ el.innerHTML=[...text].map(ch=>`<span style="display:inline-block;opacity:0">${ch===' '?'&nbsp;':ch}</span>`).join(''); }
+function wipe(el,p,soft=14){ // left->right handwriting reveal
+  const x=-soft+p*(100+soft*2);
+  const m=`linear-gradient(90deg,#000 ${x-soft}%,transparent ${x}%)`;
+  el.style.webkitMaskImage=m;el.style.maskImage=m;
+}
+function wipeDown(el,p,soft=20){
+  const x=-soft+p*(100+soft*2);
+  const m=`linear-gradient(180deg,#000 ${x-soft}%,transparent ${x}%)`;
+  el.style.webkitMaskImage=m;el.style.maskImage=m;
+}
+
+function animBrand(g,t,t0){
+  const mono=q(g,'mono'),name=q(g,'name'),fisio=q(g,'fisio'),l1=q(g,'l1'),l2=q(g,'l2');
+  const pm=prog(t,t0,t0+1.5); wipe(mono,eio(pm),25); mono.style.transform=`translateY(${(1-eo(pm))*14}px)`;
+  const pn=eo(prog(t,t0+.8,t0+2.2));
+  name.style.opacity=pn; name.style.transform=`scaleX(${1.12-.12*pn})`; name.style.filter=`blur(${(1-pn)*8}px)`;
+  const pl=eo(prog(t,t0+1.6,t0+2.5));
+  l1.style.transformOrigin='right center';l2.style.transformOrigin='left center';
+  l1.style.transform=l2.style.transform=`scaleX(${pl})`;
+  const pf=eo(prog(t,t0+1.8,t0+2.6)); fisio.style.opacity=pf; fisio.style.transform=`translateY(${(1-pf)*10}px)`;
+}
+function animTeaser(g,t,t0,dur){
+  const d1=q(g,'d1'),d2=q(g,'d2'),heart=q(g,'heart'),hp=g.querySelector('#hp'),nov=q(g,'novidade'),sp=q(g,'spark'),ch=q(g,'cheg');
+  const pd=eio(prog(t,t0,t0+1.0));
+  d1.style.transformOrigin='right center';d2.style.transformOrigin='left center';
+  d1.style.transform=d2.style.transform=`scaleX(${pd})`;
+  const L=hp.getTotalLength(); hp.style.strokeDasharray=L; hp.style.strokeDashoffset=L*(1-eio(prog(t,t0+.3,t0+1.3)));
+  const beatT=t-(t0+1.4); let s=1; if(beatT>0){const ph=(beatT%1.6)/1.6; s=1+.10*Math.max(0,Math.sin(ph*Math.PI*2))*(ph<.5?1:0)+.06*Math.max(0,Math.sin((ph-.18)*Math.PI*2*2))*(ph>.18&&ph<.43?1:0);}
+  heart.style.transformOrigin='35px 45px'; heart.style.transform=`scale(${s})`;
+  const pv=prog(t,t0+1.1,t0+3.0); wipe(nov,eio(pv),10); nov.style.opacity=pv>0?1:0;
+  sp.querySelectorAll('path').forEach((p,i)=>{const pp=eback(prog(t,t0+2.9+i*.09,t0+3.35+i*.09)); const l=p.getTotalLength(); p.style.strokeDasharray=l; p.style.strokeDashoffset=l*(1-clamp(pp,0,1)); p.style.opacity=pp>0?1:0;});
+  if(!ch.dataset.init){setChars(ch,'CHEGANDO...');ch.dataset.init=1;}
+  [...ch.children].forEach((sp_,i)=>{
+    let o, y;
+    if(i<8){const p=eo(prog(t,t0+3.3+i*.09,t0+3.9+i*.09)); o=p; y=(1-p)*22;}
+    else { const k=i-8; const start=t0+4.3+k*.22; o=eo(prog(t,start,start+.3)); y=0;
+      if(t>t0+5.2){const ph=((t-(t0+5.2))-k*.22)%1.5; o=ph<0?1:(.25+.75*(0.5+0.5*Math.cos(ph/1.5*Math.PI*2)));} }
+    sp_.style.opacity=o; sp_.style.transform=`translateY(${y}px)`;
+  });
+}
+
+// ---------- videos ----------
+// teaser animado "Novidade chegando..."
+const DUR=11;
+const b=brand(), te=teaser(660); C.append(b,te);
+const draw=t=>{
+  const z=1+.035*eio(t/DUR); C.style.transform=`scale(${z})`; C.style.transformOrigin='50% 45%';
+  animBrand(b,t,.5); animTeaser(te,t,3.0,DUR);
+};
+window.DUR=DUR; window.render=t=>draw(t);
+// background drift
+const blobs=[...document.querySelectorAll('.blob')];
+const base=[[-50,-150],[650,1350],[-250,1200],[200,1700],[350,350]];
+const _draw=window.render;
+window.render=t=>{blobs.forEach((b,i)=>{const [x,y]=base[i];const dx=Math.sin(t*.35+i*1.7)*70,dy=Math.cos(t*.28+i*2.3)*60;b.style.transform=`translate(${x+dx}px,${y+dy}px)`;});_draw(t);};
+window.render(0);
+window.ready=document.fonts.ready.then(()=>new Promise(r=>requestAnimationFrame(()=>r(true))));
+</script></body></html>
