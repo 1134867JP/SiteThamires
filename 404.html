@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página não encontrada | Thamires Camargo Fisioterapia</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#164f42" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Thamires Camargo, página inicial">
+        <img src="/assets/logo-horizontal.png" alt="Thamires Camargo Fisioterapia" class="logo-img" width="849" height="120" />
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <a href="/#sobre" class="nav-link">Sobre</a>
+        <a href="/#atendimentos" class="nav-link">Atendimentos</a>
+        <a href="/#onde-atendo" class="nav-link">Onde atendo</a>
+        <a href="/#acompanhamento" class="nav-link">Como funciona</a>
+        <a href="#contato" class="nav-link" data-nav>Contato</a>
+      </nav>
+
+      <button class="header-cta" data-cta-location="header_404" onclick="openWhatsApp(this)">
+        Falar com a Thamires <i class="fas fa-arrow-right"></i>
+      </button>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="/#sobre" class="mobile-link">Sobre</a>
+      <a href="/#atendimentos" class="mobile-link">Atendimentos</a>
+      <a href="/#onde-atendo" class="mobile-link">Onde atendo</a>
+      <a href="/#acompanhamento" class="mobile-link">Como funciona</a>
+      <a href="#contato" class="mobile-link" data-nav>Contato</a>
+      <button class="btn-primary mobile-cta" data-cta-location="menu_mobile_404" onclick="openWhatsApp(this)">Falar com a Thamires</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="eyebrow">Erro 404</span>
+        <h1 class="page-title">Esta página <em>não existe</em></h1>
+        <p class="page-lead">O endereço pode ter mudado. Veja abaixo os atendimentos de fisioterapia em Passo Fundo ou fale direto pelo WhatsApp.</p>
+        <div class="hero-actions">
+          <a href="/" class="btn-primary">Ir para a página inicial</a>
+          <button class="btn-ghost" data-cta-location="404" onclick="openWhatsApp(this)"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+        </div>
+      </div>
+    </section>
+    <section class="section related">
+      <div class="section-inner">
+        <div class="related-grid">
+          <a class="related-card" href="/fisioterapia-oncologica-passo-fundo/"><span class="related-text"><strong>Fisioterapia oncológica</strong><span>Em casa, em Passo Fundo e região</span></span></a>
+          <a class="related-card" href="/fisioterapia-para-idosos-passo-fundo/"><span class="related-text"><strong>Fisioterapia para idosos</strong><span>Em casa, em Passo Fundo e região</span></span></a>
+          <a class="related-card" href="/reabilitacao-pos-uti-passo-fundo/"><span class="related-text"><strong>Reabilitação pós-UTI</strong><span>Em casa, em Passo Fundo e região</span></span></a>
+          <a class="related-card" href="/fisioterapia-em-clinica-passo-fundo/"><span class="related-text"><strong>Fisioterapia em clínica</strong><span>Dry needling, liberação miofascial e terapia manual</span></span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contato" class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/assets/logo-light.png" alt="Thamires Camargo Fisioterapia" class="footer-logo" width="873" height="360" loading="lazy" decoding="async" />
+        <span>Fisioterapia domiciliar em Passo Fundo</span>
+      </div>
+
+      <div class="footer-col">
+        <h4>Atendimentos</h4>
+        <a href="/fisioterapia-oncologica-passo-fundo/">Fisioterapia oncológica</a>
+        <a href="/fisioterapia-para-idosos-passo-fundo/">Fisioterapia para idosos</a>
+        <a href="/reabilitacao-pos-uti-passo-fundo/">Reabilitação pós-UTI</a>
+        <a href="/fisioterapia-em-clinica-passo-fundo/">Fisioterapia em clínica</a>
+        <a href="/para-profissionais/">Para profissionais de saúde</a>
+        <a href="/">Fisioterapia em Passo Fundo</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="tel:+5554999549918"><i class="fas fa-phone"></i> (54) 99954-9918</a>
+        <span><i class="fas fa-house-medical"></i> Atendimento domiciliar em Passo Fundo e região</span>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Salutem+Cl%C3%ADnica+Integrada%2C+Av.+Pres.+Vargas%2C+657%2C+Passo+Fundo+-+RS" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i> Salutem Clínica Integrada, Av. Pres. Vargas, 657</a>
+        <span><i class="fas fa-clock"></i> Seg. a sex., 8h às 18h</span>
+        <a href="https://maps.app.goo.gl/dSLQQjPr5NviSbuX6" target="_blank" rel="noopener"><i class="fas fa-map"></i> Perfil no Google Maps</a>
+        <a href="https://www.instagram.com/fisiothamiresc/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> @fisiothamiresc</a>
+        <span><i class="fas fa-certificate"></i> CREFITO 404302-F</span>
+      </div>
+
+      <div class="footer-col">
+        <h4>Encaminhar</h4>
+        <p>Conte com a fisioterapia para dar continuidade ao cuidado dos seus pacientes.</p>
+        <button class="btn-footer-cta" data-cta-location="footer_404" onclick="openWhatsApp(this)">
+          Falar com a Thamires <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Thamires Camargo. Todos os direitos reservados.</p>
+      <p>Passo Fundo · RS</p>
+      <p>Desenvolvido por <a href="https://joaopedrodev.com.br/" target="_blank" rel="noopener noreferrer" class="footer-dev-link">Dev João Pedro</a></p>
+    </div>
+  </footer>
+
+  <script src="/tracking-config.js"></script>
+  <script src="/tracking.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

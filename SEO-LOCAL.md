@@ -22,6 +22,7 @@ Fazer uma vez:
   - Fisioterapia oncológica → `https://thamirescamargo.com.br/fisioterapia-oncologica-passo-fundo/`
   - Fisioterapia para idosos → `https://thamirescamargo.com.br/fisioterapia-para-idosos-passo-fundo/`
   - Reabilitação pós-UTI → `https://thamirescamargo.com.br/reabilitacao-pos-uti-passo-fundo/`
+  - Fisioterapia em clínica (dry needling, liberação miofascial, terapia manual) → `https://thamirescamargo.com.br/fisioterapia-em-clinica-passo-fundo/`
 - [ ] **Fotos:** no mínimo 10: foto de perfil, logo, Thamires atendendo (com autorização do paciente), equipamentos, carro/material de atendimento.
 
 Fazer sempre (é o que mais pesa no ranking do mapa):
@@ -63,7 +64,7 @@ Usar sempre o mesmo endereço, escrito do mesmo jeito: **Av. Pres. Vargas, 657, 
 
 ## 3. Site (Google Search Console)
 
-- [ ] Em **Sitemaps**, reenviar `sitemap.xml` (agora com 4 páginas).
+- [ ] Em **Sitemaps**, reenviar `sitemap.xml` (agora com 6 páginas).
 - [ ] Em **Inspeção de URL**, pedir indexação de cada página nova.
 - [ ] Depois de 3 a 4 semanas, conferir em **Desempenho** quais buscas trazem impressões e cliques.
 
