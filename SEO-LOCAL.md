@@ -22,6 +22,7 @@ Fazer uma vez:
   - Fisioterapia oncológica → `https://thamirescamargo.com.br/fisioterapia-oncologica-passo-fundo/`
   - Fisioterapia para idosos → `https://thamirescamargo.com.br/fisioterapia-para-idosos-passo-fundo/`
   - Reabilitação pós-UTI → `https://thamirescamargo.com.br/reabilitacao-pos-uti-passo-fundo/`
+  - Fisioterapia em clínica (dry needling, liberação miofascial, terapia manual) → `https://thamirescamargo.com.br/fisioterapia-em-clinica-passo-fundo/`
 - [ ] **Fotos:** no mínimo 10: foto de perfil, logo, Thamires atendendo (com autorização do paciente), equipamentos, carro/material de atendimento.
 
 Fazer sempre (é o que mais pesa no ranking do mapa):
@@ -31,6 +32,25 @@ Fazer sempre (é o que mais pesa no ranking do mapa):
 - [ ] **Responder todas as avaliações**, citando o serviço ("Obrigada pela confiança na fisioterapia oncológica…").
 - [ ] **Postagens:** 1 por semana (dica de saúde, novidade, foto) com botão "Saiba mais" para uma página do site.
 - [ ] **Perguntas e respostas:** cadastrar as dúvidas frequentes do site.
+
+## 1b. "fisioterapia Passo Fundo" x "fisioterapeuta Passo Fundo"
+
+O Google trata as duas buscas como intenções diferentes: "fisioterapeuta" procura **uma profissional**
+(a categoria do perfil é exatamente essa), "fisioterapia" procura **um serviço/clínica** e por isso mostra
+clínicas, catálogos e a faculdade. Para entrar também nessa busca:
+
+- [ ] **Categoria secundária:** adicionar "Clínica de fisioterapia" no Perfil da Empresa (agora há atendimento
+      em consultório na Salutem). Manter "Fisioterapeuta" como principal, que é o que segura a busca atual.
+- [ ] **Descrição do perfil:** começar com "Fisioterapia em Passo Fundo..." (a frase exata).
+- [ ] **Serviços:** nomear com a palavra "Fisioterapia" (ex.: "Fisioterapia domiciliar", "Fisioterapia oncológica",
+      "Fisioterapia para idosos", "Fisioterapia em clínica: dry needling e terapia manual").
+- [ ] **Avaliações:** pedir que o paciente conte o que fez ("a fisioterapia em casa me ajudou..."); o texto
+      das avaliações pesa nas buscas.
+- [ ] **Search Console → Desempenho:** filtrar a consulta "fisioterapia passo fundo" e anotar a posição
+      média hoje, para comparar daqui a 4–8 semanas.
+
+No site, o título, o H1 e o texto da página inicial passaram a usar a frase "Fisioterapia em Passo Fundo",
+e os rodapés das páginas internas linkam a inicial com esse texto.
 
 ## 2. Salutem Clínica Integrada
 
@@ -44,7 +64,7 @@ Usar sempre o mesmo endereço, escrito do mesmo jeito: **Av. Pres. Vargas, 657, 
 
 ## 3. Site (Google Search Console)
 
-- [ ] Em **Sitemaps**, reenviar `sitemap.xml` (agora com 4 páginas).
+- [ ] Em **Sitemaps**, reenviar `sitemap.xml` (agora com 6 páginas).
 - [ ] Em **Inspeção de URL**, pedir indexação de cada página nova.
 - [ ] Depois de 3 a 4 semanas, conferir em **Desempenho** quais buscas trazem impressões e cliques.
 
